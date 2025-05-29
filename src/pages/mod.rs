@@ -5,8 +5,6 @@ mod projects;
 
 pub use home::Home;
 pub use getting_started::GettingStarted;
-pub use cheatsheets::*;
-pub use projects::*;
 
 use leptos::*;
 

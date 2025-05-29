@@ -2,9 +2,8 @@ use leptos::*;
 use leptos_meta::*;
 use leptos_router::*;
 
-use crate::components::{layout::*, theme::*};
+use crate::components::layout::*;
 use crate::pages::*;
-use crate::data::*;
 
 #[component]
 pub fn App() -> impl IntoView {
