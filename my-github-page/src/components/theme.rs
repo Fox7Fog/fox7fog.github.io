@@ -78,12 +78,10 @@ pub fn ThemeToggle(cx: Scope) -> impl IntoView {
             on:click=toggle_theme
             aria-label="Toggle theme"
         >
-            <span class="theme-icon">
-                {move || match theme() {
-                    Theme::Light => "Switch to light mode "
-                    Theme::Dark => "Switch to dark mode",
-                }}
-            </span>
+            {move || match theme() {
+                Theme::Light => "Switch to dark mode",
+                Theme::Dark => "Switch to light mode",
+            }}
         </button>
     }
 }
