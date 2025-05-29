@@ -3,8 +3,8 @@ use leptos_router::*;
 use super::theme::*;
 
 #[component]
-pub fn MainLayout(cx: Scope, children: Children) -> impl IntoView {
-    view! { cx,
+pub fn MainLayout(children: Children) -> impl IntoView {
+    view! {
         <ThemeProvider>
             <div class="layout">
                 <nav class="sidebar">
@@ -17,7 +17,7 @@ pub fn MainLayout(cx: Scope, children: Children) -> impl IntoView {
                     <NavMenu/>
                 </nav>
                 <main class="main-content">
-                    {children(cx)}
+                    {children()}
                 </main>
             </div>
         </ThemeProvider>
@@ -25,8 +25,8 @@ pub fn MainLayout(cx: Scope, children: Children) -> impl IntoView {
 }
 
 #[component]
-fn NavMenu(cx: Scope) -> impl IntoView {
-    view! { cx,
+fn NavMenu() -> impl IntoView {
+    view! {
         <nav class="nav-menu">
             <ul>
                 <li>

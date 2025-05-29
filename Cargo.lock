@@ -260,6 +260,22 @@ dependencies = [
 ]
 
 [[package]]
+name = "fox7fog-github-io"
+version = "0.1.0"
+dependencies = [
+ "console_error_panic_hook",
+ "gloo-net 0.5.0",
+ "leptos",
+ "leptos_meta",
+ "leptos_router",
+ "pulldown-cmark",
+ "serde",
+ "serde_json",
+ "wasm-bindgen",
+ "web-sys",
+]
+
+[[package]]
 name = "futures"
 version = "0.3.31"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -912,22 +928,6 @@ name = "minimal-lexical"
 version = "0.2.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "68354c5c6bd36d73ff3feceb05efa59b6acb7626617f4962be322a825e61f79a"
-
-[[package]]
-name = "my-github-page"
-version = "0.1.0"
-dependencies = [
- "console_error_panic_hook",
- "gloo-net 0.5.0",
- "leptos",
- "leptos_meta",
- "leptos_router",
- "pulldown-cmark",
- "serde",
- "serde_json",
- "wasm-bindgen",
- "web-sys",
-]
 
 [[package]]
 name = "nom"

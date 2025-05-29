@@ -17,8 +17,8 @@ impl Theme {
 }
 
 #[component]
-pub fn ThemeProvider(cx: Scope, children: Children) -> impl IntoView {
-    let (theme, set_theme) = create_signal(cx, Theme::Dark);
+pub fn ThemeProvider(children: Children) -> impl IntoView {
+    let (theme, set_theme) = create_signal(Theme::Dark);
     
     // Initialize theme from localStorage
     let window = web_sys::window().unwrap();
@@ -31,7 +31,7 @@ pub fn ThemeProvider(cx: Scope, children: Children) -> impl IntoView {
     }
     
     // Update body class and localStorage when theme changes
-    create_effect(cx, move |_| {
+    create_effect(move |_| {
         let current_theme = theme();
         let _ = storage.set_item("theme", current_theme.as_str());
         let document = window.document().unwrap();
@@ -49,18 +49,18 @@ pub fn ThemeProvider(cx: Scope, children: Children) -> impl IntoView {
         }
     });
 
-    provide_context(cx, (theme, set_theme));
+    provide_context((theme, set_theme));
     
-    view! { cx,
+    view! {
         <div class="theme-provider">
-            {children(cx)}
+            {children()}
         </div>
     }
 }
 
 #[component]
-pub fn ThemeToggle(cx: Scope) -> impl IntoView {
-    let (theme, set_theme) = use_context::<(ReadSignal<Theme>, WriteSignal<Theme>)>(cx)
+pub fn ThemeToggle() -> impl IntoView {
+    let (theme, set_theme) = use_context::<(ReadSignal<Theme>, WriteSignal<Theme>)>()
         .expect("ThemeToggle must be used within ThemeProvider");
 
     let toggle_theme = move |_| {
@@ -72,7 +72,7 @@ pub fn ThemeToggle(cx: Scope) -> impl IntoView {
         });
     };
 
-    view! { cx,
+    view! {
         <button
             class="theme-toggle"
             on:click=toggle_theme

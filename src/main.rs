@@ -1,5 +1,9 @@
 use leptos::*;
 
+pub mod components;
+pub mod pages;
+pub mod data;
+
 mod app;
 use app::App;
 
