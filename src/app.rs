@@ -21,10 +21,7 @@ pub fn App() -> impl IntoView {
                 <Routes>
                     <Route path="" view=Home/>
                     <Route path="/getting-started" view=GettingStarted/>
-                    <Route path="/guides">
-                        <Route path="/installation" view=Installation/>
-                        <Route path="/configuration" view=Configuration/>
-                    </Route>
+
                     <Route path="/*any" view=NotFound/>
                 </Routes>
             </MainLayout>

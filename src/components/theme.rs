@@ -26,13 +26,13 @@ pub fn ThemeProvider(children: Children) -> impl IntoView {
     
     if let Ok(Some(saved_theme)) = storage.get_item("theme") {
         if saved_theme == "light" {
-            set_theme(Theme::Light);
+            set_theme.set(Theme::Light);
         }
     }
     
     // Update body class and localStorage when theme changes
     create_effect(move |_| {
-        let current_theme = theme();
+        let current_theme = theme.get();
         let _ = storage.set_item("theme", current_theme.as_str());
         let document = window.document().unwrap();
         let body = document.body().unwrap();
@@ -64,12 +64,10 @@ pub fn ThemeToggle() -> impl IntoView {
         .expect("ThemeToggle must be used within ThemeProvider");
 
     let toggle_theme = move |_| {
-        set_theme.update(|t| {
-            *t = match t {
-                Theme::Light => Theme::Dark,
-                Theme::Dark => Theme::Light,
-            }
-        });
+        match theme.get() {
+            Theme::Light => set_theme.set(Theme::Dark),
+            Theme::Dark => set_theme.set(Theme::Light),
+        }
     };
 
     view! {
@@ -78,7 +76,7 @@ pub fn ThemeToggle() -> impl IntoView {
             on:click=toggle_theme
             aria-label="Toggle theme"
         >
-            {move || match theme() {
+            {move || match theme.get() {
                 Theme::Light => "Switch to dark mode",
                 Theme::Dark => "Switch to light mode",
             }}
