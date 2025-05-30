@@ -130,6 +130,131 @@ body {
     max-width: 1200px;
 }
 
+/* Hero Section */
+.hero {
+    text-align: center;
+    padding: 4rem 2rem;
+    background: linear-gradient(135deg, var(--primary) 0%, #2a9d8f 100%);
+    color: white;
+    border-radius: 0 0 2rem 2rem;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+
+.hero .subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.primary-button {
+    background: white;
+    color: var(--primary);
+    padding: 0.8rem 1.6rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.primary-button:hover {
+    transform: translateY(-2px);
+}
+
+.secondary-button {
+    background: transparent;
+    color: white;
+    padding: 0.8rem 1.6rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    border: 2px solid white;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.2s;
+}
+
+.secondary-button:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Features Section */
+.features {
+    padding: 4rem 2rem;
+}
+
+.features h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: var(--text);
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.feature-card {
+    background: var(--secondary);
+    padding: 2rem;
+    border-radius: 1rem;
+    text-align: center;
+    transition: transform 0.2s;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+}
+
+.feature-card h3 {
+    color: var(--text);
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.feature-card p {
+    color: var(--text);
+    opacity: 0.8;
+}
+
+/* Project Stats Section */
+.project-stats {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    padding: 2rem;
+    margin-top: 2rem;
+}
+
+.stat-card {
+    background: var(--secondary);
+    padding: 2rem;
+    border-radius: 1rem;
+    text-align: center;
+    min-width: 200px;
+}
+
+.stat-card h3 {
+    color: var(--text);
+    font-size: 1.5rem;
+    margin: 0;
+}
+
 /* Responsive styles */
 @media (max-width: 768px) {
     .sidebar {
@@ -143,5 +268,29 @@ body {
 
     .main-content {
         margin-left: 0;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    .hero .subtitle {
+        font-size: 1.2rem;
+    }
+    
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .feature-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .project-stats {
+        flex-direction: column;
     }
 }
