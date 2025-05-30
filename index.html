@@ -3,24 +3,31 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>NixOS Cross Platform</title>
-    <!-- Trunk will compile this Rust → Wasm app -->
-    
-<script type="module">
-import init, * as bindings from 'https://fox7fog.github.io/fox7fog-github-io-f1d6e50a346f76b2.js';
-const wasm = await init({ module_or_path: 'https://fox7fog.github.io/fox7fog-github-io-f1d6e50a346f76b2_bg.wasm' });
+    <title>Rust WebAssembly GitHub Page</title>
 
+    <script type="module">
+      // When deployed to GitHub Pages, use the absolute URLs
+      const isGitHubPages = window.location.hostname.includes('github.io');
+      const basePath = isGitHubPages ? 'https://fox7fog.github.io/' : './';
 
-window.wasmBindings = bindings;
+      // Import the WebAssembly module
+      import init from './pkg/fox7fog_github_io.js';
 
+      async function run() {
+        // Initialize the WebAssembly module
+        await init();
+      }
 
-dispatchEvent(new CustomEvent("TrunkApplicationStarted", {detail: {wasm}}));
+      run();
+    </script>
 
-</script>
     <!-- Main stylesheet -->
-    <link rel="stylesheet" href="https://fox7fog.github.io/main-1faff21c43120030.css" integrity="sha384-qIL0fSN7SlbXK30/rcUYRaaXdpjBmgdGFDjfDgWPqJv64ZfR80YZUAWHsYiLmQ6R"/>
-  <link rel="modulepreload" href="https://fox7fog.github.io/fox7fog-github-io-f1d6e50a346f76b2.js" crossorigin="anonymous" integrity="sha384-luDvdvJYmw35bPpCM6uKbRdwedipkDLC4g+rdukL2p+Pcz4Z2OR6BBdhgwdg6bBm"><link rel="preload" href="https://fox7fog.github.io/fox7fog-github-io-f1d6e50a346f76b2_bg.wasm" crossorigin="anonymous" integrity="sha384-uFFtD69MoD+fQdhzm9mp7JWuW7MJhLyrliDgxSbVa2lrbE3U6Mvkx7FdBhukY56j" as="fetch" type="application/wasm"></head>
-  <body style="display: flex; align-items: center; justify-content: center; height: 100vh; background: #222; color: #fff;">
-    <h1 style="font-size:4rem; text-align:center;">WORK IN PROGRESS</h1>
+    <link rel="stylesheet" href="./styles.css"/>
+  </head>
+  <body>
+    <!-- The Rust WebAssembly code will populate this -->
+    <div id="app">
+      <h1>Loading Rust WebAssembly...</h1>
+    </div>
   </body>
 </html>

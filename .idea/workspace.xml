@@ -76,6 +76,7 @@
     "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.rust.reset.selective.auto.import": "true",
     "git-widget-placeholder": "main",
+    "junie.onboarding.icon.badge.shown": "true",
     "last_opened_file_path": "/Users/fox7fog/RustroverProjects/fox7fog.github.io",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -85,7 +86,7 @@
     "org.rust.cargo.project.model.PROJECT_DISCOVERY": "true",
     "org.rust.cargo.project.model.impl.CargoExternalSystemProjectAware.subscribe.first.balloon": "",
     "org.rust.first.attach.projects": "true",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "settings.editor.selected.configurable": "configurable.group.junie",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -137,7 +138,7 @@
       <option name="presentableId" value="Default" />
       <updated>1748554232998</updated>
       <workItem from="1748554233689" duration="225000" />
-      <workItem from="1748554489923" duration="4999000" />
+      <workItem from="1748554489923" duration="5706000" />
     </task>
     <servers />
   </component>
