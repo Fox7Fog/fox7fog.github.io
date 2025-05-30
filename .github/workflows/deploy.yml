@@ -4,6 +4,7 @@ on:
     branches: [ main ]
   pull_request:
     branches: [ main ]
+  workflow_dispatch:
 
 jobs:
   build-and-deploy:
@@ -23,13 +24,31 @@ jobs:
       - name: Install wasm-pack
         run: curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh
 
-      - name: Build with wasm-pack
+      - name: Install trunk
+        run: |
+          cargo install --locked trunk
+          rustup target add wasm32-unknown-unknown
+
+      - name: Build with wasm-pack for library
         run: wasm-pack build --target web --out-name fox7fog_github_io --out-dir ./pkg
+
+      - name: Build with trunk for Yew application
+        run: |
+          # Create a minimal Trunk.toml
+          echo '[build]' > Trunk.toml
+          echo 'target = "index.html"' >> Trunk.toml
+          echo 'dist = "dist"' >> Trunk.toml
+
+          # Build the Yew application
+          trunk build --release
+
+          # Copy the pkg directory to dist to ensure WebAssembly files are available
+          cp -r pkg dist/
 
       - name: Deploy to GitHub Pages
         if: github.ref == 'refs/heads/main'
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: .
+          folder: dist
           branch: gh-pages
           clean: true

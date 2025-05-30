@@ -3,7 +3,11 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Rust WebAssembly GitHub Page</title>
+    <title>Pure Rust Web Development</title>
+    <meta name="description" content="A 100% Rust website built with Yew and WebAssembly">
+
+    <!-- HTMX Library -->
+    <script src="https://unpkg.com/htmx.org@1.9.6" integrity="sha384-FhXw7b6AlE/jyjlZH5iHa/tTe9EpJ1Y55RjcgPbjeWMskSxZt1v9qkxLJWNJaGni" crossorigin="anonymous"></script>
 
     <script type="module">
       // When deployed to GitHub Pages, use the absolute URLs
@@ -21,13 +25,187 @@
       run();
     </script>
 
-    <!-- Main stylesheet -->
-    <link rel="stylesheet" href="./styles.css"/>
+    <style>
+      /* Minimal loading styles */
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      }
+
+      #app {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        text-align: center;
+      }
+
+      @keyframes pulse {
+        0% { opacity: 0.6; }
+        50% { opacity: 1; }
+        100% { opacity: 0.6; }
+      }
+
+      .loading {
+        animation: pulse 1.5s infinite;
+      }
+
+      /* HTMX Demo Styles */
+      #htmx-demo button {
+        background: #4CAF50;
+        color: white;
+        border: none;
+        padding: 8px 16px;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background 0.3s;
+      }
+
+      #htmx-demo button:hover {
+        background: #45a049;
+      }
+
+      .htmx-indicator {
+        display: inline-block;
+        opacity: 0;
+        transition: opacity 200ms ease-in;
+      }
+
+      .htmx-request .htmx-indicator {
+        opacity: 1;
+      }
+
+      .htmx-request.htmx-indicator {
+        opacity: 1;
+      }
+    </style>
   </head>
   <body>
-    <!-- The Rust WebAssembly code will populate this -->
     <div id="app">
-      <h1>Loading Rust WebAssembly...</h1>
+      <h1 class="loading">Loading Pure Rust Application...</h1>
     </div>
+
+    <!-- HTMX Demo Toggle Button -->
+    <button id="htmx-toggle" style="position: fixed; bottom: 20px; right: 20px; background: #4CAF50; color: white; border: none; padding: 8px 16px; border-radius: 4px; cursor: pointer; z-index: 1001;">
+      Show HTMX Demo
+    </button>
+
+    <!-- HTMX Demo Section -->
+    <div id="htmx-demo" style="display: none; position: fixed; bottom: 20px; right: 20px; background: rgba(0,0,0,0.7); color: white; padding: 15px; border-radius: 8px; z-index: 1000; max-width: 350px; overflow-y: auto; max-height: 80vh;">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+        <h3 style="margin: 0;">HTMX Demo</h3>
+        <button id="htmx-close" style="background: transparent; border: none; color: white; cursor: pointer; font-size: 16px;">✕</button>
+      </div>
+
+      <div style="background: rgba(255,255,255,0.1); padding: 10px; border-radius: 4px; margin-bottom: 15px;">
+        <p><strong>What is HTMX?</strong> HTMX allows you to access modern browser features directly from HTML, rather than using JavaScript. It lets you build modern user interfaces with the simplicity and power of hypertext.</p>
+        <p>Below are some examples of what you can do with HTMX. <a href="https://htmx.org/docs/" target="_blank" style="color: #4CAF50;">Learn more</a></p>
+      </div>
+
+      <!-- Example 1: Simple GET request -->
+      <div class="htmx-example">
+        <h4>Example 1: Simple GET</h4>
+        <p>Click the button to fetch data:</p>
+        <button 
+          hx-get="https://jsonplaceholder.typicode.com/todos/1" 
+          hx-target="#result-1" 
+          hx-trigger="click"
+          hx-indicator="#spinner-1">
+          Fetch Todo
+        </button>
+        <span id="spinner-1" class="htmx-indicator">
+          Loading...
+        </span>
+        <div id="result-1" style="margin-top: 10px; background: rgba(255,255,255,0.1); padding: 10px; border-radius: 4px;">
+          Result will appear here
+        </div>
+      </div>
+
+      <!-- Example 2: Form submission -->
+      <div class="htmx-example" style="margin-top: 20px;">
+        <h4>Example 2: Form Submission</h4>
+        <form hx-post="https://jsonplaceholder.typicode.com/posts" 
+              hx-target="#result-2"
+              hx-indicator="#spinner-2">
+          <div style="margin-bottom: 10px;">
+            <input type="text" name="title" placeholder="Title" style="width: 100%; padding: 5px; border-radius: 4px; border: none;">
+          </div>
+          <div style="margin-bottom: 10px;">
+            <textarea name="body" placeholder="Body" style="width: 100%; padding: 5px; border-radius: 4px; border: none;"></textarea>
+          </div>
+          <button type="submit">Submit Post</button>
+          <span id="spinner-2" class="htmx-indicator">
+            Submitting...
+          </span>
+        </form>
+        <div id="result-2" style="margin-top: 10px; background: rgba(255,255,255,0.1); padding: 10px; border-radius: 4px;">
+          Form result will appear here
+        </div>
+      </div>
+
+      <!-- Example 3: Click-to-edit -->
+      <div class="htmx-example" style="margin-top: 20px;">
+        <h4>Example 3: Click-to-Edit</h4>
+        <div id="view-mode" hx-target="this" hx-swap="outerHTML">
+          <div style="background: rgba(255,255,255,0.1); padding: 10px; border-radius: 4px; cursor: pointer;"
+               hx-get="#edit-mode-template" 
+               hx-trigger="click">
+            <p><strong>Name:</strong> John Doe</p>
+            <p><strong>Email:</strong> john@example.com</p>
+            <p><small>(Click to edit)</small></p>
+          </div>
+        </div>
+
+        <template id="edit-mode-template">
+          <div id="edit-mode">
+            <div style="background: rgba(255,255,255,0.1); padding: 10px; border-radius: 4px;">
+              <div style="margin-bottom: 10px;">
+                <label>Name:</label>
+                <input type="text" name="name" value="John Doe" style="width: 100%; padding: 5px; border-radius: 4px; border: none;">
+              </div>
+              <div style="margin-bottom: 10px;">
+                <label>Email:</label>
+                <input type="email" name="email" value="john@example.com" style="width: 100%; padding: 5px; border-radius: 4px; border: none;">
+              </div>
+              <button hx-get="#view-mode-template" hx-target="#edit-mode" hx-swap="outerHTML">Save</button>
+            </div>
+          </div>
+        </template>
+
+        <template id="view-mode-template">
+          <div id="view-mode" hx-target="this" hx-swap="outerHTML">
+            <div style="background: rgba(255,255,255,0.1); padding: 10px; border-radius: 4px; cursor: pointer;"
+                 hx-get="#edit-mode-template" 
+                 hx-trigger="click">
+              <p><strong>Name:</strong> John Doe</p>
+              <p><strong>Email:</strong> john@example.com</p>
+              <p><small>(Click to edit)</small></p>
+            </div>
+          </div>
+        </template>
+      </div>
+    </div>
+
+    <!-- JavaScript for HTMX Demo Toggle -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const toggleButton = document.getElementById('htmx-toggle');
+        const closeButton = document.getElementById('htmx-close');
+        const htmxDemo = document.getElementById('htmx-demo');
+
+        // Show HTMX demo when toggle button is clicked
+        toggleButton.addEventListener('click', function() {
+          htmxDemo.style.display = 'block';
+          toggleButton.style.display = 'none';
+        });
+
+        // Hide HTMX demo when close button is clicked
+        closeButton.addEventListener('click', function() {
+          htmxDemo.style.display = 'none';
+          toggleButton.style.display = 'block';
+        });
+      });
+    </script>
   </body>
 </html>
