@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="ALL" />
+  </component>
+  <component name="CargoProjects">
+    <cargoProject FILE="$PROJECT_DIR$/Cargo.toml">
+      <package file="$PROJECT_DIR$">
+        <enabledFeature name="default" />
+      </package>
+    </cargoProject>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="149f795d-28b4-4279-b8bc-56bfe01bf7a0" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.github/workflows/deploy.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cargo.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cargo.toml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/.nojekyll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/fox7fog-github-io-f1d6e50a346f76b2.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/fox7fog-github-io-f1d6e50a346f76b2_bg.wasm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/main-1faff21c43120030.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.template.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app.rs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/breadcrumb.rs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/content_area.rs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/layout.rs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/mobile_menu.rs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/mod.rs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/search.rs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/sidebar.rs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/theme.rs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/content.rs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/mod.rs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/navigation.rs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main.rs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/cheatsheets/docker.rs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/cheatsheets/git.rs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/cheatsheets/linux.rs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/cheatsheets/mod.rs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/cheatsheets/rust.rs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/getting_started.rs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/home.rs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/mod.rs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/projects/individual_project.rs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/projects/mod.rs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/projects/overview.rs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/main.css" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="RsBuildProfile:dev" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MacroExpansionManager">
+    <option name="directoryName" value="hMjsStzb" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
+  <component name="ProjectId" id="2xmrkB9lpPErxNY5HD7TVeuD8iC" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.rust.reset.selective.auto.import": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/Users/fox7fog/RustroverProjects/fox7fog.github.io",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "org.rust.cargo.project.model.PROJECT_DISCOVERY": "true",
+    "org.rust.cargo.project.model.impl.CargoExternalSystemProjectAware.subscribe.first.balloon": "",
+    "org.rust.first.attach.projects": "true",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RunManager" selected="Cargo.Run fox7fog-github-io">
+    <configuration name="Run fox7fog-github-io" type="CargoCommandRunConfiguration" factoryName="Cargo Command">
+      <option name="buildProfileId" value="dev" />
+      <option name="command" value="run --package fox7fog-github-io --bin fox7fog-github-io" />
+      <option name="workingDirectory" value="file://$PROJECT_DIR$" />
+      <envs />
+      <option name="emulateTerminal" value="true" />
+      <option name="channel" value="DEFAULT" />
+      <option name="requiredFeatures" value="true" />
+      <option name="allFeatures" value="false" />
+      <option name="withSudo" value="false" />
+      <option name="buildTarget" value="REMOTE" />
+      <option name="backtrace" value="SHORT" />
+      <option name="isRedirectInput" value="false" />
+      <option name="redirectInputPath" value="" />
+      <method v="2">
+        <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Test fox7fog-github-io" type="CargoCommandRunConfiguration" factoryName="Cargo Command">
+      <option name="command" value="test --workspace" />
+      <option name="workingDirectory" value="file://$PROJECT_DIR$" />
+      <envs />
+      <option name="emulateTerminal" value="true" />
+      <option name="channel" value="DEFAULT" />
+      <option name="requiredFeatures" value="true" />
+      <option name="allFeatures" value="false" />
+      <option name="withSudo" value="false" />
+      <option name="buildTarget" value="REMOTE" />
+      <option name="backtrace" value="SHORT" />
+      <option name="isRedirectInput" value="false" />
+      <option name="redirectInputPath" value="" />
+      <method v="2">
+        <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="RustProjectSettings">
+    <option name="toolchainHomeDirectory" value="$USER_HOME$/.cargo/bin" />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="149f795d-28b4-4279-b8bc-56bfe01bf7a0" name="Changes" comment="" />
+      <created>1748554232998</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1748554232998</updated>
+      <workItem from="1748554233689" duration="225000" />
+      <workItem from="1748554489923" duration="4999000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
