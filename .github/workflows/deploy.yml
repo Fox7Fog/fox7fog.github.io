@@ -26,7 +26,10 @@ jobs:
           version: 'latest'
 
       - name: Build
-        run: trunk build --release --public-url https://fox7fog.github.io
+        run: trunk build --release --public-url https://fox7fog.github.io --file index.template.html
+
+      - name: Disable Jekyll (allow dotfiles & underscores)
+        run: touch dist/.nojekyll
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
