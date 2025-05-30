@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NixOS Cross Platform</title>
+    <!-- Trunk will compile this Rust → Wasm app -->
+    
+<script type="module">
+import init, * as bindings from 'https://fox7fog.github.io/fox7fog-github-io-63aebc974f8addea.js';
+const wasm = await init({ module_or_path: 'https://fox7fog.github.io/fox7fog-github-io-63aebc974f8addea_bg.wasm' });
+
+
+window.wasmBindings = bindings;
+
+
+dispatchEvent(new CustomEvent("TrunkApplicationStarted", {detail: {wasm}}));
+
+</script>
+    <!-- Main stylesheet -->
+    <link rel="stylesheet" href="https://fox7fog.github.io/main-1faff21c43120030.css" integrity="sha384-qIL0fSN7SlbXK30/rcUYRaaXdpjBmgdGFDjfDgWPqJv64ZfR80YZUAWHsYiLmQ6R"/>
+  <link rel="modulepreload" href="https://fox7fog.github.io/fox7fog-github-io-63aebc974f8addea.js" crossorigin="anonymous" integrity="sha384-m5fM3Rt1bE0diTNDhiTZ0CMHE/ynJ1N03Gm4ZT+U6/1pzlHik/XiWW878pQCzjV5"><link rel="preload" href="https://fox7fog.github.io/fox7fog-github-io-63aebc974f8addea_bg.wasm" crossorigin="anonymous" integrity="sha384-J30bjU8LcyIejpwtgBBlpGfzsAFRlcP2FdtZXJ1biP3OFYjQ2GLl26HU8AaF/Jq1" as="fetch" type="application/wasm"></head>
+  <body>
+  </body>
+</html>
