@@ -26,7 +26,7 @@ jobs:
           version: 'latest'
 
       - name: Build
-        run: trunk build --release --public-url fox7fog.github.io
+        run: trunk build --release --public-url https://fox7fog.github.io
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
